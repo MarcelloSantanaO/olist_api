@@ -11,13 +11,13 @@ class BaseResource(Resource):
 
     def get(self, id: int = None) -> str:
         if id:
-            return self.__dao.read_by_id(id), 200
-        return self.__dao.read_all(), 200
+            return self.__dao.read_by_id(id)
+        return self.__dao.read_all()
 
     def post(self):
         data = request.json
         item = self.__model_type(**data)
-        return self.__dao.save(item), 201
+        return self.__dao.save(item)
 
     def put(self, id):
         data = request.json
@@ -27,7 +27,7 @@ class BaseResource(Resource):
             for key, value in data.items():
                 setattr(item, key, value)
 
-            return self.__dao.save(item), 200
+            return self.__dao.save(item)
 
         return None, 404
 
