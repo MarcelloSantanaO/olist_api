@@ -6,7 +6,7 @@ from src.models.base_model import BaseModel
 
 class BaseDao:
     def __init__(self, type_model: Type):
-        self.__type = type_model
+        self.__type_model = type_model
 
     def save(self, model: BaseModel) -> None:
         with Session() as session:
