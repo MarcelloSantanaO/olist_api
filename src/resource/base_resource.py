@@ -9,7 +9,7 @@ class BaseResource(Resource):
         self.__dao = dao
         self.__model_type = model_type
 
-    def get(self, id: int = None) -> str:
+    def get(self, id: int = None):
         if id:
             return self.__dao.read_by_id(id), 200
         return self.__dao.read_all(), 200

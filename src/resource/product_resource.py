@@ -4,11 +4,12 @@ from src.dao.product_dao import ProductDao
 from src.models.product_model import Product
 from src.resource.base_resource import BaseResource
 
+
 class ProductResource(BaseResource):
     fields = {
-        "id_": fields.Integer
-        "name": fields.String
-        "description": fields.String
+        "id_": fields.Integer,
+        "name": fields.String,
+        "description": fields.String,
         "price": fields.Float
     }
 
@@ -30,6 +31,6 @@ class ProductResource(BaseResource):
     def put(self, id: int):
         return super().put(id)
 
-    @marshal_with(fields, id: int)
-    def delete(self):
+    @marshal_with(fields)
+    def delete(self, id: int):
         return super().delete(id)
